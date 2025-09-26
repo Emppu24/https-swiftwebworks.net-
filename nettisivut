@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"><!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empun palvelut - Ilo Auttaa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #90c5ff;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            opacity: 1;
+            position: relative;
+            width: 100vw;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-image: url('Kuvat/Snapchat-1601874176.jpg');
+            background-size: cover;
+            background-position: center top;
+            color: #000;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            z-index: 1;
+        }
+
+        #logo {
+            width: 20%;
+            height: auto;
+        }
+
+        header div:last-child {
+            margin-top: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            background-color: #90c5ff;
+        }
+
+        nav a {
+            color: #000;
+            text-decoration: none;
+            margin: 0 4%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        section {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            max-height: fit-content;
+            align-items: center;
+            text-align: left;
+            padding: 20px;
+            z-index: 1;
+            background-color: transparent;
+            transition: transform 0.3s ease, filter 0.5s ease;
+        }
+
+        section div {
+            border: 2px solid #496274;
+            padding: 15px;
+            background-color: transparent;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            margin-bottom: 10px;
+            text-align: center;
+            background-color: #2b3f52;
+            color: #ffffff;
+            padding: 10px;
+        }
+
+        section p {
+            margin-right: 20px;
+            color: #333;
+        }
+
+        .text-container {
+            flex: 1;
+            margin: 0 20px;
+        }
+
+        hr {
+            margin: 40px 0;
+            border: none;
+            border-top: 2px solid #5a7c9b;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-box {
+            border: 2px solid #363a3d;
+            padding: 15px;
+            background-color: #90bdee;
+            max-width: 300px;
+            text-align: center;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-box img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            background-image: url('Kuvat/Snapchat-1601874176.jpg');
+            background-size: cover;
+            background-position: center bottom;
+            padding: 10px;
+            color: #000000;
+            margin-top: 20px;
+            font-size: 22px;
+        }
+
+        #palvelut {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .highlighted {
+            background-color: #f0f0f0;
+        }
+
+        nav a:hover {
+            transform: scale(1.1);
+        }
+
+        section:hover {
+            transform: scale(1.05);
+            z-index: 2;
+        }
+
+        section:not(:hover) {
+            transition: transform 0.3s ease, filter 0.5s ease;
+        }
+
+        #yleistietoa {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            background-image: url(Kuvat/pihatyot-karhuilla-1.jpg);
+            background-size: cover;
+            background-position: center top 20%;
+        }
+
+        #yleistietoa .text-container {
+            background-color: rgba(223, 239, 255, 0.8);
+            max-width: 600px;
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+        }
+
+        #Laita_oma .text-container {
+            background-color: rgba(236, 245, 255, 0.8);
+        }
+
+        @media only screen and (max-width: 768px) {
+            section#Laita_oma {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            section#Laita_oma .text-container {
+                max-width: calc(100% - 40px);
+                margin: 20px;
+            }
+
+            section {
+                padding: 0;
+            }
+        }
+
+        /* Slideshow Styles */
+        .slides {
+            display: none;
+        }
+
+        .slideshow-container img {
+            vertical-align: middle;
+        }
+
+        /* Ensure other images display properly */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .slideshow-container {
+            width: fit-content;
+            max-width: 100%;
+            position: relative;
+            border: none;
+            margin: auto;
+        }
+
+        /* Previous and next buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 3%;
+            user-select: none;
+            background-color: rgba(0,0,0,0.3);
+        }
+
+        .prev {
+            left: 3.5%;
+        }
+
+        .next {
+            right: 3.5%;
+            border-radius: 3%;
+        }
+
+        /* Hover background */
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        /* Fade animation */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+            padding: 0;
+        }
+
+        .slide-img {
+            max-height: 60vh;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+        /* Auto-slideshow indicator */
+        .slideshow-status {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Smaller arrows on small screens */
+        @media only screen and (max-width: 300px) {
+            .prev, .next {font-size: 11px}
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <img src="https://empunpalvelut.com/Kuvat/empun-palvelut-logo.webp" alt="Logo" style="width: 100%">
+        </div>
+        <div>
+            <h1>Empun palvelut - Ilo auttaa!</h1>
+            <p style="color: #000000;">Etsitkö auttavaa kättä askareissa ja huolloissa Porvoonseudun alueella? Empun palvelut 4HY on täällä auttamassa!</p>
+        </div>
+    </header>
+
+    <nav style="margin: 0 5%">
+        <a href="#Laita_oma" style="white-space: nowrap;">Tarinani</a>
+        <a href="#yleistietoa">Yleistietoa</a>
+        <a href="#palvelut">Palvelut</a>
+        <a href="#footer">Yhteystiedot</a>
+    </nav>
+
+    <hr>
+
+    <section id="Laita_oma">
+        <div class="text-container">
+            <h2>Tarinani</h2>
+            <div>
+                <p>Olen Emil Vainio, 19-vuotias porvoolainen nuori yrittäjä. Aloitin yritykseni vuonna 2022 tammikuussa puutöiden, lumitöiden, polkupyörien huoltamisen ja simppelien pihatöiden parissa. Olen sittemmin saanut enemmän työkaluja käyttööni ja opetellut uusia taitoja kuten raivausta, pensasaidan leikkuuta, autojen ja moottoripyörien huoltoa ja ylläpitoa. Tämän kautta olen päässyt nykyiseen tarjontaani, joka jatkuvasti kasvaa. Sain idean yritykseeni siitä, kun lähistön asukkaat tarvitsivat apua, milloin missäkin pikkuhommassa. Tykästyin hommaan ja päätin tehdä yrityksen laajalla palveluvalikoimalla ja levittää toimintaa koko Porvoon alueelle ja jopa pidemmällekin. Tässä kuvia erilaisista töistäni😊</p>
+
+                <div class="slideshow-container" id="slideshowContainer">
+                    <!-- Pihatyöt -->
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/Eg8uRbJ.png" alt="Pihatyö 1">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/Lo8cCtF.png" alt="Pihatyö 2">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/QRNibl3.png" alt="Pihatyö 3">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/hp6qSFC.jpeg" alt="Pihatyö 4">
+                    </div>
+
+                    <!-- Puutyö -->
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/CmAvuiJ.png" alt="Puutyö 1">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/iiProWk.png" alt="Puutyö 2">
+                    </div>
+
+                    <!-- Moottoripyörä -->
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/hEFU0sU.png" alt="Moottoripyörä 1">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/rVAVXDZ.png" alt="Moottoripyörä 2">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/wqB8y40.png" alt="Moottoripyörä 3">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/sEwVJm6.png" alt="Moottoripyörä 4">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/98Jvoph.png" alt="Moottoripyörä 5">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/2B06sS6.png" alt="Moottoripyörä 6">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/UdPpK9c.png" alt="Moottoripyörä 7">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/7E6i9CG.png" alt="Moottoripyörä 8">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/eBw5yV9.png" alt="Moottoripyörä 9">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/BtGt1jF.png" alt="Moottoripyörä 10">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/3zNSdbI.png" alt="Moottoripyörä 11">
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+                </div>
+                
+                <div class="slideshow-status">
+                    <small>Automaattinen kuvakaruselli - pysähtyy kun hiiri on kuvien päällä</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="yleistietoa">
+        <div class="text-container">
+            <h2>Yleistietoa</h2>
+            <div>
+                <p>Empun Palvelut 4HY yritykseni kautta autan asiakkaitani tarjoamalla heille laadukkaita palveluita.</p>
+                <p>Tavoitteenani on palvella asiakkaita, jotka eivät itse kerkeä kiireisen arjen takia tai eivät itse pysty hoitamaan pihatöitä, menopelien huoltoa, auton renkaiden vaihtoa yms. Kokemusta minulla on tarjoamista palveluistani kertynyt lapsuudesta asti ja yritykseni kautta jo lähemmäs tuhat työtuntia, joten työkalut pysyy käsissä niin piha- että huoltohommissa. Empun palvelut tarjoaa auttavan käden asiakkaille arjen askareissa että isommissakin urakoissa. Pyrin aina tarjoamaan asiakkailleni parasta mahdollista palvelua, sen eteen teen yhteistyötä jokaisen asiakkaan kanssa luotettavasti ja vastuullisesti. Yrityksen työt saa myös kotitalousvähennykseen!</p>
+            </div>
+            <img src="https://imgur.com/lkp4Oq3.png" alt="Emil" style="margin-top: 10px; width: 90%; border: 2px solid #496274;">
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="palvelut">
+        <div class="text-container">
+            <h2>Palvelut</h2>
+            <div class="product-container">
+                <div class="product-box">
+                    <h3>Pihatyöt</h3>
+                    <img src="https://imgur.com/GrdqvXm.png" alt="Pihatyöt Photo">
+                    <p>Pihatyöpalveluihin kuuluu mm. pensasaidan leikkuu, nurmenleikkuu, haravointi, raivaushommat, puiden kaataminen, kaatopaikkareissut, lumityöt ja hiekotus, painepesurilla peseminen, maalaukset ja puupintojen öljyäminen.
+                        <br><br>
+                        Minulla on käytössä oma auto ja peräkärryjä. Työkaluja pihahommiin löytyy mm. moottorisaha, raivaussahoja, (siima, sirkkeli- ja kolmilapainen terä), painepesuri, ruohonleikkuri ja perus käsityökalut kuten vesurit ja kirveet.
+                        <br><br>
+                        Kaikki 25€/tunti</p>
+                </div>
+                <div class="product-box">
+                    <h3>Huoltopalvelut</h3>
+                    <img src="https://imgur.com/Rxg5Xwl.png" alt="Huoltopalvelut Photo">
+                    <p>Tarjoan autoille renkaanvaihto- ja pesupalveluita
+                        <br><br>
+                        Renkaanvaihto: 25€ ja vanteiden pesu 5€ lisähinnasta
+                        <br><br>
+                        Pesupalvelut: ulkopesu 25e, sisäpesu 50e (sisältää imuroinnin ja tarkan pintojen puhdistuksen), vahaus 80e (sisältää ulkopesun ja vahauksen)
+                        <br>
+                        Autojen pesuista minulla on kokemusta noin sadan auton verran ja se kuulemma näkyy työn jäljessä
+                        <br>
+                        Huom. hinnasto koskee henkilöautoja, muut autot teen 25€/tunti
+                        <br><br>
+                        Polkupyörät
+                        <br><br>
+                        Tarjoan polkupyörille renkaanvaihto ja huoltopalveluita.
+                        <br><br>
+                        Perushuolto 20€, sisältää pesun, ketjujen rasvauksen ja pyörän läpikäynnin sekä pikkuvikojen korjauksen. Isommat työt 25€/tunti. Renkaanvaihto: 15€
+                        <br><br>
+                        Pienkonehuollot: Sisältää mopot, skootterit, kevytmoottoripyörät, nurmenleikkurit, raivaussahat ja vastaavat.
+                        <br>
+                        25€/tunti</p>
+                </div>
+                <div class="product-box">
+                    <h3>Puutyöt</h3>
+                    <img src="https://imgur.com/N3v7UoE.png" alt="Puutyöt Photo">
+                    <p>Laaja valikoima puutöitä ja nikkarointia:
+                        <br><br>
+                        Tilaustyönä nikkaroinnit esim. aidat, portit, ikkunoiden karmit ja koriste esineet kuten majakat.
+                        <br>
+                        Myös koira- ja hevosharrastajille esteitä ja korokkeita, ja tietenkin kaikkien edellä mainittujen korjaukset ja ylläpito myös
+                        <br><br>
+                        Katajasta tehtyjä voiveitsiä, lastoja ja kauhoja
+                        <br><br>
+                        Normaalit veitset: 4€
+                        <br>
+                        Ketun muotoiset voiveitset: 6€
+                        <br>
+                        Pienet lastat: 5€
+                        <br>
+                        Isot lastat: 7€</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <div id="footer">
+        <footer>
+            <h4>Empun palvelut - Ilo auttaa!</h4>
+            <div>
+                <a href="https://www.facebook.com/profile.php?id=100091254562278" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook-square"></i>
+                </a>
+                <p>045 8408668</p>
+                <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6c09011c19021c0d001a090019182c0b010d0500420f0301">[email&#160;protected]</a></p>
+                <p>Porvoo</p>
+            </div>
+        </footer>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+        // Navigation smooth scrolling
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll("nav a").forEach(function (button) {
+                button.addEventListener("mouseover", function () {
+                    this.style.transform = "scale(1.1)";
+                });
+                button.addEventListener("mouseout", function () {
+                    this.style.transform = "scale(1)";
+                });
+            });
+
+            document.querySelectorAll("section").forEach(function (section) {
+                if(window.innerWidth < 800) return; // No blur for mobile devices
+                section.addEventListener("mouseover", function () {
+                    this.style.transform = "scale(1.05)";
+                    this.style.zIndex = "2";
+                    document.querySelectorAll("section:not(:hover)").forEach(function (otherSection) {
+                        otherSection.style.filter = "blur(1px)";
+                    });
+                });
+                section.addEventListener("mouseout", function () {
+                    this.style.transform = "scale(1)";
+                    this.style.zIndex = "1";
+                    document.querySelectorAll("section").forEach(function (otherSection) {
+                        otherSection.style.filter = "blur(0)";
+                    });
+                });
+            });
+
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+
+                    window.scrollTo({
+                        top: targetSection.offsetTop,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+
+        // Slideshow functionality
+        let slideIndex = 1;
+        let slideshowTimer;
+        let isPaused = false;
+
+        // Initialize slideshow
+        document.addEventListener("DOMContentLoaded", function() {
+            showSlides(slideIndex);
+            startSlideshow();
+
+            // Pause slideshow on hover
+            const slideshowContainer = document.getElementById('slideshowContainer');
+            if (slideshowContainer) {
+                slideshowContainer.addEventListener('mouseenter', function() {
+                    pauseSlideshow();
+                });
+                
+                slideshowContainer.addEventListener('mouseleave', function() {
+                    resumeSlideshow();
+                });
+            }
+        });
+
+        function plusSlides(n) {
+            pauseSlideshow();
+            showSlides(slideIndex += n);
+            // Resume after manual navigation
+            setTimeout(resumeSlideshow, 3000);
+        }
+
+        function currentSlide(n) {
+            pauseSlideshow();
+            showSlides(slideIndex = n);
+            // Resume after manual navigation
+            setTimeout(resumeSlideshow, 3000);
+        }
+
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("slides");
+            if (slides.length === 0) return;
+            
+            if (n > slides.length) slideIndex = 1;
+            if (n < 1) slideIndex = slides.length;
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            if (slides[slideIndex - 1]) {
+                slides[slideIndex - 1].style.display = "flex";
+            }
+        }
+
+        function nextSlide() {
+            if (!isPaused) {
+                slideIndex++;
+                showSlides(slideIndex);
+            }
+        }
+
+        function startSlideshow() {
+            slideshowTimer = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        }
+
+        function pauseSlideshow() {
+            isPaused = true;
+            if (slideshowTimer) {
+                clearInterval(slideshowTimer);
+            }
+        }
+
+        function resumeSlideshow() {
+            isPaused = false;
+            startSlideshow();
+        }
+    </script>
+</body>
+</html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empun palvelut - Ilo Auttaa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #90c5ff;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            opacity: 1;
+            position: relative;
+            width: 100vw;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-image: url('Kuvat/Snapchat-1601874176.jpg');
+            background-size: cover;
+            background-position: center top;
+            color: #000;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            z-index: 1;
+        }
+
+        #logo {
+            width: 20%;
+            height: auto;
+        }
+
+        header div:last-child {
+            margin-top: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            background-color: #90c5ff;
+        }
+
+        nav a {
+            color: #000;
+            text-decoration: none;
+            margin: 0 4%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        section {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            max-height: fit-content;
+            align-items: center;
+            text-align: left;
+            padding: 20px;
+            z-index: 1;
+            background-color: transparent;
+            transition: transform 0.3s ease, filter 0.5s ease;
+        }
+
+        section div {
+            border: 2px solid #496274;
+            padding: 15px;
+            background-color: transparent;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            margin-bottom: 10px;
+            text-align: center;
+            background-color: #2b3f52;
+            color: #ffffff;
+            padding: 10px;
+        }
+
+        section p {
+            margin-right: 20px;
+            color: #333;
+        }
+
+        .text-container {
+            flex: 1;
+            margin: 0 20px;
+        }
+
+        hr {
+            margin: 40px 0;
+            border: none;
+            border-top: 2px solid #5a7c9b;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-box {
+            border: 2px solid #363a3d;
+            padding: 15px;
+            background-color: #90bdee;
+            max-width: 300px;
+            text-align: center;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-box img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            background-image: url('Kuvat/Snapchat-1601874176.jpg');
+            background-size: cover;
+            background-position: center bottom;
+            padding: 10px;
+            color: #000000;
+            margin-top: 20px;
+            font-size: 22px;
+        }
+
+        #palvelut {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .highlighted {
+            background-color: #f0f0f0;
+        }
+
+        nav a:hover {
+            transform: scale(1.1);
+        }
+
+        section:hover {
+            transform: scale(1.05);
+            z-index: 2;
+        }
+
+        section:not(:hover) {
+            transition: transform 0.3s ease, filter 0.5s ease;
+        }
+
+        #yleistietoa {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            background-image: url(Kuvat/pihatyot-karhuilla-1.jpg);
+            background-size: cover;
+            background-position: center top 20%;
+        }
+
+        #yleistietoa .text-container {
+            background-color: rgba(223, 239, 255, 0.8);
+            max-width: 600px;
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+        }
+
+        #Laita_oma .text-container {
+            background-color: rgba(236, 245, 255, 0.8);
+        }
+
+        @media only screen and (max-width: 768px) {
+            section#Laita_oma {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            section#Laita_oma .text-container {
+                max-width: calc(100% - 40px);
+                margin: 20px;
+            }
+
+            section {
+                padding: 0;
+            }
+        }
+
+        /* Slideshow Styles */
+        .slides {
+            display: none;
+        }
+
+        .slideshow-container img {
+            vertical-align: middle;
+        }
+
+        /* Ensure other images display properly */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .slideshow-container {
+            width: fit-content;
+            max-width: 100%;
+            position: relative;
+            border: none;
+            margin: auto;
+        }
+
+        /* Previous and next buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 3%;
+            user-select: none;
+            background-color: rgba(0,0,0,0.3);
+        }
+
+        .prev {
+            left: 3.5%;
+        }
+
+        .next {
+            right: 3.5%;
+            border-radius: 3%;
+        }
+
+        /* Hover background */
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        /* Fade animation */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+            padding: 0;
+        }
+
+        .slide-img {
+            max-height: 60vh;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+        /* Auto-slideshow indicator */
+        .slideshow-status {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Smaller arrows on small screens */
+        @media only screen and (max-width: 300px) {
+            .prev, .next {font-size: 11px}
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <img src="https://empunpalvelut.com/Kuvat/empun-palvelut-logo.webp" alt="Logo" style="width: 100%">
+        </div>
+        <div>
+            <h1>Empun palvelut - Ilo auttaa!</h1>
+            <p style="color: #000000;">Etsitkö auttavaa kättä askareissa ja huolloissa Porvoonseudun alueella? Empun palvelut 4HY on täällä auttamassa!</p>
+        </div>
+    </header>
+
+    <nav style="margin: 0 5%">
+        <a href="#Laita_oma" style="white-space: nowrap;">Tarinani</a>
+        <a href="#yleistietoa">Yleistietoa</a>
+        <a href="#palvelut">Palvelut</a>
+        <a href="#footer">Yhteystiedot</a>
+    </nav>
+
+    <hr>
+
+    <section id="Laita_oma">
+        <div class="text-container">
+            <h2>Tarinani</h2>
+            <div>
+                <p>Olen Emil Vainio, 19-vuotias porvoolainen nuori yrittäjä. Aloitin yritykseni vuonna 2022 tammikuussa puutöiden, lumitöiden, polkupyörien huoltamisen ja simppelien pihatöiden parissa. Olen sittemmin saanut enemmän työkaluja käyttööni ja opetellut uusia taitoja kuten raivausta, pensasaidan leikkuuta, autojen ja moottoripyörien huoltoa ja ylläpitoa. Tämän kautta olen päässyt nykyiseen tarjontaani, joka jatkuvasti kasvaa. Sain idean yritykseeni siitä, kun lähistön asukkaat tarvitsivat apua, milloin missäkin pikkuhommassa. Tykästyin hommaan ja päätin tehdä yrityksen laajalla palveluvalikoimalla ja levittää toimintaa koko Porvoon alueelle ja jopa pidemmällekin. Tässä kuvia erilaisista töistäni😊</p>
+
+                <div class="slideshow-container" id="slideshowContainer">
+                    <!-- Pihatyöt -->
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/Eg8uRbJ.png" alt="Pihatyö 1">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/Lo8cCtF.png" alt="Pihatyö 2">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/QRNibl3.png" alt="Pihatyö 3">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/hp6qSFC.jpeg" alt="Pihatyö 4">
+                    </div>
+
+                    <!-- Puutyö -->
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/CmAvuiJ.png" alt="Puutyö 1">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/iiProWk.png" alt="Puutyö 2">
+                    </div>
+
+                    <!-- Moottoripyörä -->
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/hEFU0sU.png" alt="Moottoripyörä 1">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/rVAVXDZ.png" alt="Moottoripyörä 2">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/wqB8y40.png" alt="Moottoripyörä 3">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/sEwVJm6.png" alt="Moottoripyörä 4">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/98Jvoph.png" alt="Moottoripyörä 5">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/2B06sS6.png" alt="Moottoripyörä 6">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/UdPpK9c.png" alt="Moottoripyörä 7">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/7E6i9CG.png" alt="Moottoripyörä 8">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/eBw5yV9.png" alt="Moottoripyörä 9">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/BtGt1jF.png" alt="Moottoripyörä 10">
+                    </div>
+
+                    <div class="slides fade">
+                        <img class="slide-img" src="https://i.imgur.com/3zNSdbI.png" alt="Moottoripyörä 11">
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+                </div>
+                
+                <div class="slideshow-status">
+                    <small>Automaattinen kuvakaruselli - pysähtyy kun hiiri on kuvien päällä</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="yleistietoa">
+        <div class="text-container">
+            <h2>Yleistietoa</h2>
+            <div>
+                <p>Empun Palvelut 4HY yritykseni kautta autan asiakkaitani tarjoamalla heille laadukkaita palveluita.</p>
+                <p>Tavoitteenani on palvella asiakkaita, jotka eivät itse kerkeä kiireisen arjen takia tai eivät itse pysty hoitamaan pihatöitä, menopelien huoltoa, auton renkaiden vaihtoa yms. Kokemusta minulla on tarjoamista palveluistani kertynyt lapsuudesta asti ja yritykseni kautta jo lähemmäs tuhat työtuntia, joten työkalut pysyy käsissä niin piha- että huoltohommissa. Empun palvelut tarjoaa auttavan käden asiakkaille arjen askareissa että isommissakin urakoissa. Pyrin aina tarjoamaan asiakkailleni parasta mahdollista palvelua, sen eteen teen yhteistyötä jokaisen asiakkaan kanssa luotettavasti ja vastuullisesti. Yrityksen työt saa myös kotitalousvähennykseen!</p>
+            </div>
+            <img src="https://i.imgur.com/hp6qSFC.jpeg" alt="Emil" style="margin-top: 10px; width: 90%; border: 2px solid #496274;">
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="palvelut">
+        <div class="text-container">
+            <h2>Palvelut</h2>
+            <div class="product-container">
+                <div class="product-box">
+                    <h3>Pihatyöt</h3>
+                    <img src="https://i.imgur.com/Eg8uRbJ.png" alt="Pihatyöt Photo">
+                    <p>Pihatyöpalveluihin kuuluu mm. pensasaidan leikkuu, nurmenleikkuu, haravointi, raivaushommat, puiden kaataminen, kaatopaikkareissut, lumityöt ja hiekotus, painepesurilla peseminen, maalaukset ja puupintojen öljyäminen.
+                        <br><br>
+                        Minulla on käytössä oma auto ja peräkärryjä. Työkaluja pihahommiin löytyy mm. moottorisaha, raivaussahoja, (siima, sirkkeli- ja kolmilapainen terä), painepesuri, ruohonleikkuri ja perus käsityökalut kuten vesurit ja kirveet.
+                        <br><br>
+                        Kaikki 25€/tunti</p>
+                </div>
+                <div class="product-box">
+                    <h3>Huoltopalvelut</h3>
+                    <img src="https://i.imgur.com/hEFU0sU.png" alt="Huoltopalvelut Photo">
+                    <p>Tarjoan autoille renkaanvaihto- ja pesupalveluita
+                        <br><br>
+                        Renkaanvaihto: 25€ ja vanteiden pesu 5€ lisähinnasta
+                        <br><br>
+                        Pesupalvelut: ulkopesu 25e, sisäpesu 50e (sisältää imuroinnin ja tarkan pintojen puhdistuksen), vahaus 80e (sisältää ulkopesun ja vahauksen)
+                        <br>
+                        Autojen pesuista minulla on kokemusta noin sadan auton verran ja se kuulemma näkyy työn jäljessä
+                        <br>
+                        Huom. hinnasto koskee henkilöautoja, muut autot teen 25€/tunti
+                        <br><br>
+                        Polkupyörät
+                        <br><br>
+                        Tarjoan polkupyörille renkaanvaihto ja huoltopalveluita.
+                        <br><br>
+                        Perushuolto 20€, sisältää pesun, ketjujen rasvauksen ja pyörän läpikäynnin sekä pikkuvikojen korjauksen. Isommat työt 25€/tunti. Renkaanvaihto: 15€
+                        <br><br>
+                        Pienkonehuollot: Sisältää mopot, skootterit, kevytmoottoripyörät, nurmenleikkurit, raivaussahat ja vastaavat.
+                        <br>
+                        25€/tunti</p>
+                </div>
+                <div class="product-box">
+                    <h3>Puutyöt</h3>
+                    <img src="https://i.imgur.com/CmAvuiJ.png" alt="Puutyöt Photo">
+                    <p>Laaja valikoima puutöitä ja nikkarointia:
+                        <br><br>
+                        Tilaustyönä nikkaroinnit esim. aidat, portit, ikkunoiden karmit ja koriste esineet kuten majakat.
+                        <br>
+                        Myös koira- ja hevosharrastajille esteitä ja korokkeita, ja tietenkin kaikkien edellä mainittujen korjaukset ja ylläpito myös
+                        <br><br>
+                        Katajasta tehtyjä voiveitsiä, lastoja ja kauhoja
+                        <br><br>
+                        Normaalit veitset: 4€
+                        <br>
+                        Ketun muotoiset voiveitset: 6€
+                        <br>
+                        Pienet lastat: 5€
+                        <br>
+                        Isot lastat: 7€</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <div id="footer">
+        <footer>
+            <h4>Empun palvelut - Ilo auttaa!</h4>
+            <div>
+                <a href="https://www.facebook.com/profile.php?id=100091254562278" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook-square"></i>
+                </a>
+                <p>045 8408668</p>
+                <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bcd9d1ccc9d2ccddd0cad9d0c9c8fcdbd1ddd5d092dfd3d1">[email&#160;protected]</a></p>
+                <p>Porvoo</p>
+            </div>
+        </footer>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Navigation smooth scrolling
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll("nav a").forEach(function (button) {
+                button.addEventListener("mouseover", function () {
+                    this.style.transform = "scale(1.1)";
+                });
+                button.addEventListener("mouseout", function () {
+                    this.style.transform = "scale(1)";
+                });
+            });
+
+            document.querySelectorAll("section").forEach(function (section) {
+                if(window.innerWidth < 800) return; // No blur for mobile devices
+                section.addEventListener("mouseover", function () {
+                    this.style.transform = "scale(1.05)";
+                    this.style.zIndex = "2";
+                    document.querySelectorAll("section:not(:hover)").forEach(function (otherSection) {
+                        otherSection.style.filter = "blur(1px)";
+                    });
+                });
+                section.addEventListener("mouseout", function () {
+                    this.style.transform = "scale(1)";
+                    this.style.zIndex = "1";
+                    document.querySelectorAll("section").forEach(function (otherSection) {
+                        otherSection.style.filter = "blur(0)";
+                    });
+                });
+            });
+
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+
+                    window.scrollTo({
+                        top: targetSection.offsetTop,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+
+        // Slideshow functionality
+        let slideIndex = 1;
+        let slideshowTimer;
+        let isPaused = false;
+
+        // Initialize slideshow
+        document.addEventListener("DOMContentLoaded", function() {
+            showSlides(slideIndex);
+            startSlideshow();
+
+            // Pause slideshow on hover
+            const slideshowContainer = document.getElementById('slideshowContainer');
+            if (slideshowContainer) {
+                slideshowContainer.addEventListener('mouseenter', function() {
+                    pauseSlideshow();
+                });
+                
+                slideshowContainer.addEventListener('mouseleave', function() {
+                    resumeSlideshow();
+                });
+            }
+        });
+
+        function plusSlides(n) {
+            pauseSlideshow();
+            showSlides(slideIndex += n);
+            // Resume after manual navigation
+            setTimeout(resumeSlideshow, 3000);
+        }
+
+        function currentSlide(n) {
+            pauseSlideshow();
+            showSlides(slideIndex = n);
+            // Resume after manual navigation
+            setTimeout(resumeSlideshow, 3000);
+        }
+
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("slides");
+            if (slides.length === 0) return;
+            
+            if (n > slides.length) slideIndex = 1;
+            if (n < 1) slideIndex = slides.length;
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            if (slides[slideIndex - 1]) {
+                slides[slideIndex - 1].style.display = "flex";
+            }
+        }
+
+        function nextSlide() {
+            if (!isPaused) {
+                slideIndex++;
+                showSlides(slideIndex);
+            }
+        }
+
+        function startSlideshow() {
+            slideshowTimer = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        }
+
+        function pauseSlideshow() {
+            isPaused = true;
+            if (slideshowTimer) {
+                clearInterval(slideshowTimer);
+            }
+        }
+
+        function resumeSlideshow() {
+            isPaused = false;
+            startSlideshow();
+        }
+    </script>
+</body>
+</html>
